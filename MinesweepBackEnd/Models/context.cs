@@ -2,11 +2,15 @@
 
 namespace MinesweepBackEnd.Models
 {
-    public class MinesweeperContext : DbContext
+    public class MineContext : DbContext
     {
-        public MinesweeperContext(DbContextOptions<MinesweeperContext> options) : base(options) { }
+        public DbSet<Mines> Mines => Set<Mines>();
 
-        public DbSet<Board> Boards { get; set; }
-        public DbSet<User> Users { get; set; }
+        public MineContext() => Database.EnsureCreated();
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server = GREGBOOK\SQLEXPRESS;Database=Minesweeper;Trusted_Connection=True;TrustServerCertificate=True;");
+        }
     }
 }

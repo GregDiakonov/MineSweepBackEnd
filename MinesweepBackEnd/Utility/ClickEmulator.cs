@@ -5,7 +5,7 @@ namespace MinesweepBackEnd.Utility
 {
     public static class ClickEmulator
     {
-        public static int[][] rightClick(int[][] layout, int pressedH, int pressedW)
+        public static int[][] RightClick(int[][] layout, int pressedH, int pressedW)
         {
             if (layout[pressedH][pressedW] == -2)
             {
@@ -18,13 +18,13 @@ namespace MinesweepBackEnd.Utility
             return layout;
         }
 
-        public static int[][] leftClick(int[][] layout, int[][] mines, int pressedH, int pressedW)
+        public static int[][] LeftClick(int[][] layout, int[][] mines, int pressedH, int pressedW)
         {
             switch (layout[pressedH][pressedW])
             {
                 case 9:
                     {
-                        layout = openTile(layout, mines, pressedH, pressedW);
+                        layout = OpenTile(layout, mines, pressedH, pressedW);
                         break;
                     }
                 case 1:
@@ -36,7 +36,7 @@ namespace MinesweepBackEnd.Utility
                 case 7:
                 case 8:
                     {
-                        layout = openAdjacent(layout, mines, pressedH, pressedW);
+                        layout = OpenAdjacent(layout, mines, pressedH, pressedW);
                         break;
                     }
 
@@ -45,11 +45,11 @@ namespace MinesweepBackEnd.Utility
             return layout;
         }
 
-        private static int[][] openTile(int[][] layout, int[][] mines, int thisHeight, int thisWidth)
+        private static int[][] OpenTile(int[][] layout, int[][] mines, int thisHeight, int thisWidth)
         {
             bool openAdj = false;
 
-            switch(countTileNumber(mines, thisHeight, thisWidth))
+            switch(CountTileNumber(mines, thisHeight, thisWidth))
             {
                 case 1:
                     {
@@ -102,13 +102,13 @@ namespace MinesweepBackEnd.Utility
 
             if(openAdj)
             {
-                layout = openAdjacent(layout, mines, thisHeight, thisWidth);
+                layout = OpenAdjacent(layout, mines, thisHeight, thisWidth);
             }
 
             return layout;
         }
 
-        private static int[][] openAdjacent(int[][] layout, int[][] mines, int thisHeight, int thisWidth) {
+        private static int[][] OpenAdjacent(int[][] layout, int[][] mines, int thisHeight, int thisWidth) {
             for (int i = -1; i <= 1; i++)
             {
                 for (int j = -1; j <= 1; j++)
@@ -119,7 +119,7 @@ namespace MinesweepBackEnd.Utility
                             layout[thisHeight + i].ElementAtOrDefault(thisWidth + j) != 0 &&
                             layout[thisHeight + i][thisWidth + j] == 9)
                         {
-                            layout = openTile(layout, mines, thisHeight + i, thisWidth + j);
+                            layout = OpenTile(layout, mines, thisHeight + i, thisWidth + j);
                         }
                     }
                 }
@@ -128,35 +128,7 @@ namespace MinesweepBackEnd.Utility
             return layout;
         }
 
-        private static bool checkFlags(int[][] layout, int thisHeight, int thisWidth, int hasToBe)
-        {
-            int count = 0;
-
-            for (int i = -1; i <= 1; i++)
-            {
-                for (int j = -1; j <= 1; j++)
-                {
-                    if (i != 0 || j != 0)
-                    {
-                        if (layout.ElementAtOrDefault(thisHeight + i) != null &&
-                            layout[thisHeight + i].ElementAtOrDefault(thisWidth + j) != 0 &&
-                            layout[thisHeight + i][thisWidth + j] == -2)
-                        {
-                            count++;
-                        }
-                    }
-                }
-            }
-
-            if(count == hasToBe)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        private static int countTileNumber(int[][] mines, int thisHeight, int thisWidth) {
+        private static int CountTileNumber(int[][] mines, int thisHeight, int thisWidth) {
             int count = 0;
 
             for(int i = -1; i <= 1; i++)

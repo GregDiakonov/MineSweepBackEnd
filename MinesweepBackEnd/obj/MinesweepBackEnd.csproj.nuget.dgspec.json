@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gregd\\source\\repos\\MinesweepBackEnd\\MinesweepBackEnd\\MinesweepBackEnd.csproj": {}
+    "C:\\Users\\gregd\\GitRepos\\MineSweepBack\\MinesweepBackEnd\\MinesweepBackEnd.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gregd\\source\\repos\\MinesweepBackEnd\\MinesweepBackEnd\\MinesweepBackEnd.csproj": {
+    "C:\\Users\\gregd\\GitRepos\\MineSweepBack\\MinesweepBackEnd\\MinesweepBackEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gregd\\source\\repos\\MinesweepBackEnd\\MinesweepBackEnd\\MinesweepBackEnd.csproj",
+        "projectUniqueName": "C:\\Users\\gregd\\GitRepos\\MineSweepBack\\MinesweepBackEnd\\MinesweepBackEnd.csproj",
         "projectName": "MinesweepBackEnd",
-        "projectPath": "C:\\Users\\gregd\\source\\repos\\MinesweepBackEnd\\MinesweepBackEnd\\MinesweepBackEnd.csproj",
+        "projectPath": "C:\\Users\\gregd\\GitRepos\\MineSweepBack\\MinesweepBackEnd\\MinesweepBackEnd.csproj",
         "packagesPath": "C:\\Users\\gregd\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gregd\\source\\repos\\MinesweepBackEnd\\MinesweepBackEnd\\obj\\",
+        "outputPath": "C:\\Users\\gregd\\GitRepos\\MineSweepBack\\MinesweepBackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gregd\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,10 +40,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore.InMemory": {
-              "target": "Package",
-              "version": "[7.0.5, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.15, )"
